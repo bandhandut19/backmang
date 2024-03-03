@@ -9,31 +9,28 @@ import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MoreIcon from '@mui/icons-material/MoreVert';
+import { Link } from 'react-router-dom';
+
 
 const Navibar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+   
 
     const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    
 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
+ 
 
     const handleMenuClose = () => {
         setAnchorEl(null);
-        handleMobileMenuClose();
+     
     };
 
-    const handleMobileMenuOpen = (event) => {
-        setMobileMoreAnchorEl(event.currentTarget);
-    };
+    
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -52,29 +49,37 @@ const Navibar = () => {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Log In</MenuItem>
+            <Link to='/login' style={{ textDecoration: 'none', color: '#000000'}}>
+             <MenuItem onClick={handleMenuClose}>Log In</MenuItem>
+            </Link>
+            <Link to='/signup' style={{ textDecoration: 'none', color: '#000000'}}>
+
             <MenuItem onClick={handleMenuClose}>Sign Up</MenuItem>
+            </Link>
+            <Link to='/faq' style={{ textDecoration: 'none', color: '#000000'}}>
+
             <MenuItem onClick={handleMenuClose}>FAQ</MenuItem>
+            </Link>
         </Menu>
     );
 
-    const mobileMenuId = 'primary-search-account-menu-mobile';
+    
     
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+        <Box sx={{ flexGrow: 1,}}>
+            <AppBar position="static" sx={{backgroundColor: '#FFFFFF', boxShadow: 'none'}}>
                 <Toolbar>
                     <Typography
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ display: { xs: 'block', sm: 'block' } }}
+                        sx={{ display: { xs: 'block', sm: 'block'} }}
                     >
-                        BackMang
+                        <Link to='/' style={{ textDecoration: 'none', color: '#990099', fontWeight: 'bold' }}>BackMang</Link>
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
+                    <Box sx={{ flexGrow: 1 , }} />
+                    <Box sx={{ display: { xs: 'flex', md: 'flex' } , }}>
                        
                         <IconButton
                             size="large"
@@ -83,7 +88,7 @@ const Navibar = () => {
                             aria-controls={menuId}
                             aria-haspopup="true"
                             onClick={handleProfileMenuOpen}
-                            color="inherit"
+                            color="#C0C0C0"
                         >
                             <AccountCircle />
                         </IconButton>
