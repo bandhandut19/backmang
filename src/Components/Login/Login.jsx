@@ -49,7 +49,10 @@ const Login = () => {
         console.log(userInfo)
 
         userData.find(user => {
-            if(user?.userEmail == userEmail && user?.userPassword == userPassword){
+            if(user?.userEmail == 'bondon517@gmail.com' && user?.userPassword == userPassword){
+                navigate('/adminpanel')
+            }
+            else if(user?.userEmail == userEmail && user?.userPassword == userPassword){
                 console.log("successful")
                 navigate('/')
             }

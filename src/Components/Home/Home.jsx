@@ -2,9 +2,11 @@ import Notice from "./Notice";
 
 
 const Home = () => {
+    const notice = "Notice Here"
     return (
         <div>
-            <Notice></Notice>
+            <Notice notice={notice}></Notice>
+
         </div>
     );
 };

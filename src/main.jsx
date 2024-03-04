@@ -10,6 +10,7 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import SignUp from './Components/SignUp/SignUp'
 import Faq from './Components/Faq/Faq';
+import AdminPanel from './Components/AdminPanel/AdminPanel';
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path:'/faq',
         element: <Faq></Faq>,
+      },
+      {
+        path:'/adminpanel',
+        element: <AdminPanel></AdminPanel>,
       },
     ]
   },

@@ -12,9 +12,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
     const defaultTheme = createTheme();
+    const navigate = useNavigate()
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -34,6 +36,7 @@ const SignUp = () => {
         axios.post('http://localhost:5000/users',userInfo)
         .then(res => {
             console.log('Successful',res.data)
+            navigate('/login')
         })
         .catch(error =>{
             console.error("Error Logging in:", error)
