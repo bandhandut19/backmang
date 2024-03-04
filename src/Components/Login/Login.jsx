@@ -10,6 +10,9 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import {toast } from 'react-toastify';
+import { FaGoogle } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
@@ -132,6 +135,11 @@ const Login = () => {
                                 </Grid>
                                 <Grid item>
                                     {"Or"}
+                                </Grid>
+                                <Grid item sx={{ fontSize: '1.3rem' }} >
+                                    <Link href='/login' sx={{ marginLeft: '1rem' }}>  <FaGoogle /> </Link>
+                                    <Link href='/login' sx={{ marginLeft: '1rem' }}>  <FaFacebookF /></Link>
+                                    <Link href='/login' sx={{ marginLeft: '1rem' }}>  <FaInstagram /></Link>
                                 </Grid>
                             </Grid>
                         </Box>
