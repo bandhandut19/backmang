@@ -25,12 +25,12 @@ const SignUp = () => {
         
         const userName= data.get('name')
         const userEmail = data.get('email')
-        const userPassword = data.get('password')
+        // const userPassword = data.get('password')
 
         const userInfo = {
             userName,
             userEmail,
-            userPassword,
+            // userPassword,
         }
         console.log(userInfo)
 

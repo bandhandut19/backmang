@@ -39,9 +39,9 @@ const Login = () => {
 
         const data = new FormData(event.currentTarget);
         const userEmail = data.get('email')
-        const userPassword = data.get('password')
+        // const userPassword = data.get('password')
 
-        const user = userData.find(user => user?.userEmail === userEmail && user?.userPassword === userPassword);
+        const user = userData.find(user => user?.userEmail === userEmail);
 
         if (user) {
             if (user.userEmail === 'bondon517@gmail.com') {
