@@ -1,4 +1,3 @@
-
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -8,16 +7,37 @@ import { FaInstagram } from "react-icons/fa";
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-
+import { useNavigate } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useEffect, useState } from 'react';
+
 
 
 const Login = () => {
+    const navigate = useNavigate()
     const defaultTheme = createTheme();
+    const [userData, setUserData] = useState(null);
+
+        useEffect(() => {
+          const fetchUserData = async () => {
+            try {
+              const response = await fetch('http://localhost:5000/users');
+              const data = await response.json();
+              setUserData(data);
+            } catch (error) {
+              console.error('Error fetching user data:', error);
+            }
+          };
+      
+          fetchUserData();
+        }, []);
+   
     const handleSubmit = (event) => {
         event.preventDefault();
+       
+
         const data = new FormData(event.currentTarget);
         const userEmail = data.get('email')
         const userPassword = data.get('password')
@@ -27,7 +47,20 @@ const Login = () => {
             userPassword
         }
         console.log(userInfo)
+
+        userData.find(user => {
+            if(user?.userEmail == userEmail && user?.userPassword == userPassword){
+                console.log("successful")
+                navigate('/')
+            }
+            else{
+                console.log("wrong credentials")
+            }
+        })
+        
     };
+    
+    
 
 
     return (

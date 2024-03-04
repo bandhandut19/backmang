@@ -11,23 +11,33 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import axios from 'axios'
 
 const SignUp = () => {
     const defaultTheme = createTheme();
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-
+        
+        const userName= data.get('name')
         const userEmail = data.get('email')
         const userPassword = data.get('password')
 
         const userInfo = {
+            userName,
             userEmail,
-            userPassword
+            userPassword,
         }
         console.log(userInfo)
 
+
+        axios.post('http://localhost:5000/users',userInfo)
+        .then(res => {
+            console.log('Successful',res.data)
+        })
+        .catch(error =>{
+            console.error("Error Logging in:", error)
+        })
     };
 
 
@@ -51,6 +61,16 @@ const SignUp = () => {
                             Sign Up
                         </Typography>
                         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                            <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="name"
+                                label="Your Name"
+                                name="name"
+                                autoComplete="name"
+                                autoFocus
+                            />
                             <TextField
                                 margin="normal"
                                 required
