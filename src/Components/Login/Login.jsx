@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
@@ -129,7 +129,7 @@ const Login = () => {
                             <Grid container sx={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: '.5rem' }}>
                                 <Grid item>
                                     {"Don't have an account?"}
-                                    <Link href='./signup' variant="body2" sx={{ textDecoration: "none", marginLeft: '.5rem', fontSize: '1.2rem' }}>
+                                    <Link to='./signup' variant="body2" sx={{ textDecoration: "none", marginLeft: '.5rem', fontSize: '1.2rem' }}>
                                         {"Sign up"}
                                     </Link>
                                 </Grid>
@@ -137,9 +137,9 @@ const Login = () => {
                                     {"Or"}
                                 </Grid>
                                 <Grid item sx={{ fontSize: '1.3rem' }} >
-                                    <Link href='./login' sx={{ marginLeft: '1rem' }}>  <FaGoogle /> </Link>
-                                    <Link href='./login' sx={{ marginLeft: '1rem' }}>  <FaFacebookF /></Link>
-                                    <Link href='./login' sx={{ marginLeft: '1rem' }}>  <FaInstagram /></Link>
+                                    <Link to='./login' sx={{ marginLeft: '1rem' }}>  <FaGoogle /> </Link>
+                                    <Link to='./login' sx={{ marginLeft: '1rem' }}>  <FaFacebookF /></Link>
+                                    <Link to='./login' sx={{ marginLeft: '1rem' }}>  <FaInstagram /></Link>
                                 </Grid>
                             </Grid>
                         </Box>
