@@ -129,7 +129,7 @@ const Login = () => {
                             <Grid container sx={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: '.5rem' }}>
                                 <Grid item>
                                     {"Don't have an account?"}
-                                    <Link href='/signup' variant="body2" sx={{ textDecoration: "none", marginLeft: '.5rem', fontSize: '1.2rem' }}>
+                                    <Link href='./signup' variant="body2" sx={{ textDecoration: "none", marginLeft: '.5rem', fontSize: '1.2rem' }}>
                                         {"Sign up"}
                                     </Link>
                                 </Grid>
@@ -137,9 +137,9 @@ const Login = () => {
                                     {"Or"}
                                 </Grid>
                                 <Grid item sx={{ fontSize: '1.3rem' }} >
-                                    <Link href='/login' sx={{ marginLeft: '1rem' }}>  <FaGoogle /> </Link>
-                                    <Link href='/login' sx={{ marginLeft: '1rem' }}>  <FaFacebookF /></Link>
-                                    <Link href='/login' sx={{ marginLeft: '1rem' }}>  <FaInstagram /></Link>
+                                    <Link href='./login' sx={{ marginLeft: '1rem' }}>  <FaGoogle /> </Link>
+                                    <Link href='./login' sx={{ marginLeft: '1rem' }}>  <FaFacebookF /></Link>
+                                    <Link href='./login' sx={{ marginLeft: '1rem' }}>  <FaInstagram /></Link>
                                 </Grid>
                             </Grid>
                         </Box>
