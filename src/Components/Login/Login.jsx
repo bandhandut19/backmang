@@ -23,7 +23,7 @@ const Login = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await fetch('users');
+                const response = await fetch('https://backmang-server-jax73l447-bandhandut19.vercel.app/users');
                 const data = await response.json();
                 setUserData(data);
             } catch (error) {

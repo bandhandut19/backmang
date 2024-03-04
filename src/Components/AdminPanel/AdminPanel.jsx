@@ -46,7 +46,7 @@ const AdminPanel = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await fetch('users');
+                const response = await fetch('https://backmang-server-jax73l447-bandhandut19.vercel.app/users');
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }
