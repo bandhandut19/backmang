@@ -65,7 +65,14 @@ const Login = () => {
             
         } else {
             
-            toast.error('Invalid credentials');
+            toast('Invalid credentials', {
+                position: 'top-center',
+                autoClose: 2000, // Close after 2 seconds
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+              })
         }
     };
 
