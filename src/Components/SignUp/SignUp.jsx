@@ -35,7 +35,7 @@ const SignUp = () => {
         console.log(userInfo)
 
 
-        axios.post('https://backmang-server-32ymk6wk0-bandhandut19.vercel.app/users',userInfo)
+        axios.post('users',userInfo)
         .then(res => {
             console.log('Successful',res.data)
             navigate('/login')
