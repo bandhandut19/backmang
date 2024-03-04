@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Root = () => {
     return (
-        <div>
+        <div >
             <div style={{ margin: 'auto', width: '80%' }}>
                 <Navibar></Navibar>
             </div>

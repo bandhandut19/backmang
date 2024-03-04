@@ -8,7 +8,7 @@ const Footer = () => {
 
     function Copyright() {
         return (
-            <Typography variant="body2" color="text.secondary" sx={{textAlign:'center', padding:'2rem'}}>
+            <Typography variant="body2" color="text.secondary" sx={{textAlign:'center', padding:'1rem'}}>
                 {'© Copyright '}
                 {new Date().getFullYear()}
                 {'  '}
