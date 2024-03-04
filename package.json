@@ -1,7 +1,7 @@
 {
   "name": "backmang",
   "private": true,
-  "proxy": "https://backmang-server-32ymk6wk0-bandhandut19.vercel.app/",
+  "proxy": "https://backmang-server-jax73l447-bandhandut19.vercel.app/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
