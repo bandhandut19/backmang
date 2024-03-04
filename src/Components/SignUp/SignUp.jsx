@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import { FaGoogle } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -125,7 +125,7 @@ const SignUp = () => {
                             <Grid container sx={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: '.5rem' }}>
                                 <Grid item>
                                     {"Already have an account?"}
-                                    <Link to='./login' variant="body2" sx={{ textDecoration: "none", marginLeft: '.5rem', fontSize: '1.2rem' }}>
+                                    <Link to='/login' variant="body2" sx={{ textDecoration: "none", marginLeft: '.5rem', fontSize: '1.2rem' }}>
                                         {"Login"}
                                     </Link>
                                 </Grid>
@@ -133,9 +133,9 @@ const SignUp = () => {
                                     {"Or"}
                                 </Grid>
                                 <Grid item sx={{ fontSize: '1.3rem' }} >
-                                    <Link to='./login' sx={{ marginLeft: '1rem' }}>  <FaGoogle /> </Link>
-                                    <Link to='./login' sx={{ marginLeft: '1rem' }}>  <FaFacebookF /></Link>
-                                    <Link to='./login' sx={{ marginLeft: '1rem' }}>  <FaInstagram /></Link>
+                                    <Link to='/login' sx={{ marginLeft: '1rem' }}>  <FaGoogle /> </Link>
+                                    <Link to='/login' sx={{ marginLeft: '1rem' }}>  <FaFacebookF /></Link>
+                                    <Link to='/login' sx={{ marginLeft: '1rem' }}>  <FaInstagram /></Link>
                                 </Grid>
                             </Grid>
                         </Box>
