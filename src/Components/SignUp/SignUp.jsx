@@ -13,6 +13,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
     const defaultTheme = createTheme();
@@ -37,9 +39,25 @@ const SignUp = () => {
         .then(res => {
             console.log('Successful',res.data)
             navigate('/login')
+            toast('Sign Up Completed. Kindly Login Now !', {
+                position: 'top-center',
+                autoClose: 3000, // Close after 3 seconds
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+              })
         })
         .catch(error =>{
             console.error("Error Logging in:", error)
+            toast(error, {
+                position: 'top-center',
+                autoClose: 3000, // Close after 3 seconds
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+              })
         })
     };
 

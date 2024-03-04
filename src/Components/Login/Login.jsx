@@ -1,9 +1,6 @@
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import { FaGoogle } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -12,67 +9,70 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
-
-
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const navigate = useNavigate()
     const defaultTheme = createTheme();
     const [userData, setUserData] = useState(null);
 
-        useEffect(() => {
-          const fetchUserData = async () => {
+    useEffect(() => {
+        const fetchUserData = async () => {
             try {
-              const response = await fetch('http://localhost:5000/users');
-              const data = await response.json();
-              setUserData(data);
+                const response = await fetch('http://localhost:5000/users');
+                const data = await response.json();
+                setUserData(data);
             } catch (error) {
-              console.error('Error fetching user data:', error);
+                console.error('Error fetching user data:', error);
             }
-          };
-      
-          fetchUserData();
-        }, []);
-   
+        };
+
+        fetchUserData();
+    }, []);
+
     const handleSubmit = (event) => {
         event.preventDefault();
-       
 
         const data = new FormData(event.currentTarget);
         const userEmail = data.get('email')
         const userPassword = data.get('password')
 
-        const userInfo = {
-            userEmail,
-            userPassword
+        const user = userData.find(user => user?.userEmail === userEmail && user?.userPassword === userPassword);
+
+        if (user) {
+            if (user.userEmail === 'bondon517@gmail.com') {
+                navigate('/adminpanel');
+                toast('Admin has Logged In Successfully', {
+                    position: 'top-center',
+                    autoClose: 3000, // Close after 3 seconds
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                  })
+            } else {
+                navigate('/');
+                toast('Logged In Successfully', {
+                    position: 'top-center',
+                    autoClose: 3000, // Close after 3 seconds
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                  })
+            }
+            
+        } else {
+            
+            toast.error('Invalid credentials');
         }
-        console.log(userInfo)
-
-        userData.find(user => {
-            if(user?.userEmail == 'bondon517@gmail.com' && user?.userPassword == userPassword){
-                navigate('/adminpanel')
-            }
-            else if(user?.userEmail == userEmail && user?.userPassword == userPassword){
-                console.log("successful")
-                navigate('/')
-            }
-            else{
-                console.log("wrong credentials")
-            }
-        })
-        
     };
-    
-    
-
 
     return (
         <Box sx={{ backgroundColor: '#E6EEF5', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-           
-        <ThemeProvider theme={defaultTheme} >
-           
-
-                <Container component="main" maxWidth="xs" sx={{ backgroundColor: '#FFFFFF' ,paddingBottom:'1rem'}}>
+            <ThemeProvider theme={defaultTheme}>
+                <Container component="main" maxWidth="xs" sx={{ backgroundColor: '#FFFFFF', paddingBottom: '1rem' }}>
                     <CssBaseline />
                     <Box
                         sx={{
@@ -81,7 +81,7 @@ const Login = () => {
                             flexDirection: 'column',
                             alignItems: 'center',
                         }}
-                        >
+                    >
                         <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>
                             Login
                         </Typography>
@@ -95,7 +95,7 @@ const Login = () => {
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
-                                />
+                            />
                             <TextField
                                 margin="normal"
                                 required
@@ -105,7 +105,7 @@ const Login = () => {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
-                                />
+                            />
                             <Button
                                 type='submit'
                                 variant="secondary" fullWidth size="lg" sx={{
@@ -126,19 +126,14 @@ const Login = () => {
                                 <Grid item>
                                     {"Or"}
                                 </Grid>
-                                <Grid item sx={{ fontSize: '1.3rem' }} >
-                                    <Link href='/login' sx={{ marginLeft: '1rem' }}>  <FaGoogle /> </Link>
-                                    <Link href='/login' sx={{ marginLeft: '1rem' }}>  <FaFacebookF /></Link>
-                                    <Link href='/login' sx={{ marginLeft: '1rem' }}>  <FaInstagram /></Link>
-                                </Grid>
                             </Grid>
                         </Box>
                     </Box>
-
                 </Container>
-    
-        </ThemeProvider>
-                                    </Box>
+                {/* Toast container */}
+               
+            </ThemeProvider>
+        </Box>
     );
 };
 
